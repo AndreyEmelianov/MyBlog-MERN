@@ -9,7 +9,6 @@ const PostSchema = new mongoose.Schema(
     text: {
       type: String,
       required: true,
-      unique: true,
     },
     tags: {
       type: Array,
@@ -31,4 +30,4 @@ const PostSchema = new mongoose.Schema(
   },
 );
 
-export default mongoose.model('User', PostSchema);
+export default mongoose.model('Post', PostSchema);
