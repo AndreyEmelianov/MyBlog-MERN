@@ -1,3 +1,4 @@
+import { config } from 'dotenv';
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
@@ -7,10 +8,10 @@ import { registerValidation } from './validations/auth.js';
 import { validationResult } from 'express-validator';
 import UserModel from './models/User.js';
 
+config();
+
 mongoose
-  .connect(
-    'mongodb+srv://640775:wwwwww@cluster0.3l5fedz.mongodb.net/blog?retryWrites=true&w=majority',
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log('DB start'))
   .catch((err) => console.log('DB error', err));
 
