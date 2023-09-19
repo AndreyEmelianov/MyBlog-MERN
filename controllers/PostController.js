@@ -39,7 +39,7 @@ export const getOne = async (req, res) => {
       postId,
       { $inc: { viewsCount: 1 } },
       { new: true },
-    );
+    ).populate('user');
 
     if (!doc) {
       return res.status(404).json({
